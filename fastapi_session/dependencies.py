@@ -47,7 +47,8 @@ async def get_session(request: Request, response: Response) -> Session:  # type:
     if session.changed:
         if session.expired:
             logger.debug("Session expired, deleting from storage...")
-            storage.delete(f"{DEFAULT_SESSION_ID}_{session.identity}")
+            response.delete_cookie(key=DEFAULT_SESSION_ID)
+            storage.delete(f"{DEFAULT_SESSION_ID}_{session.identity}", session.follow)
         else:
             logger.debug("Session changed, storing data...")
             storage.set(f"{DEFAULT_SESSION_ID}_{session.identity}", session.data())

@@ -2,7 +2,7 @@ import hashlib
 import json
 import uuid
 from datetime import datetime
-from typing import Any, Generator, Optional
+from typing import Any, Generator, KeysView, Optional
 
 from .constants import DEFAULT_ENCODING
 
@@ -44,6 +44,18 @@ class Session:
     def expired(self) -> bool:
         return self._expired
 
+    @property
+    def follow(self) -> bytes:
+        followed_attr: Optional[str] = self.get(self.get("follow"))
+        if followed_attr:
+            return followed_attr.encode(DEFAULT_ENCODING)
+        return b""
+
+    @follow.setter
+    def follow(self, key: str):
+        if key in self:
+            self["follow"] = key
+
     def __repr__(self) -> str:
         return f"Session(identity={self.identity}, created={self.created}, changed={self.changed}, data={self._data})"
 
@@ -67,6 +79,12 @@ class Session:
         for key in self._data:
             yield key
 
+    def get(self, key: str) -> Any:
+        return self._data.get(key)
+
+    def keys(self) -> KeysView:
+        return self._data.keys()
+
     def data(self, encoding: str = DEFAULT_ENCODING) -> bytes:
         _databytes = {}
         if not self.empty():
@@ -80,7 +98,3 @@ class Session:
         self._changed = True
         self._data = {}
         self._expired = True
-
-    def follow(self, key: str):
-        if key in self:
-            self["follow"] = key

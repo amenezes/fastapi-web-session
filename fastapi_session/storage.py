@@ -9,10 +9,10 @@ class Storage:
         impl_str = str(self.__class__).split(".")[-1]
         return f"Storage(impl='{impl_str[0:len(impl_str)-2]}')"
 
-    def get(self, *args: str) -> Any:
+    def get(self, key: str) -> Any:
         raise NotImplementedError
 
-    def set(self, key: str, value: str) -> None:
+    def set(self, key: str, value: bytes) -> None:
         raise NotImplementedError
 
     def delete(self, key: str, value: Optional[str] = None) -> None:
