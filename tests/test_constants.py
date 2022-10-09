@@ -1,6 +1,6 @@
 import pytest
 
-from fastapi_session.constants import DEFAULT_ENCODING, DEFAULT_SESSION_ID
+from fastapi_web_session.constants import DEFAULT_ENCODING, DEFAULT_SESSION_ID
 
 
 @pytest.mark.parametrize(

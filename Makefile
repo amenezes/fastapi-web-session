@@ -1,26 +1,26 @@
 .DEFAULT_GOAL := about
-VERSION := $(shell cat fastapi_session/__init__.py | grep '__version__ ' | cut -d'"' -f 2)
+VERSION := $(shell cat fastapi_web_session/__init__.py | grep '__version__ ' | cut -d'"' -f 2)
 
 lint:
 ifeq ($(SKIP_STYLE), )
 	@echo "> running isort..."
-	isort fastapi_session
+	isort fastapi_web_session
 	isort tests
 	isort examples
 	@echo "> running black..."
-	black fastapi_session
+	black fastapi_web_session
 	black tests
 	black examples
 endif
 	@echo "> running flake8..."
-	flake8 fastapi_session
+	flake8 fastapi_web_session
 	flake8 tests
 	@echo "> running mypy..."
-	mypy fastapi_session
+	mypy fastapi_web_session
 
 tests:
 	@echo "> unittest"
-	python -m pytest -vv --no-cov-on-fail --color=yes --durations=10 --cov-report xml --cov-report term --cov=fastapi_session tests
+	python -m pytest -vv --no-cov-on-fail --color=yes --durations=10 --cov-report xml --cov-report term --cov=fastapi_web_session tests
 
 docs:
 	@echo "> generate project documentation..."
@@ -29,7 +29,7 @@ docs:
 	mkdocs serve
 
 about:
-	@echo "> fastapi_session: $(VERSION)"
+	@echo "> fastapi_web_session: $(VERSION)"
 	@echo ""
 	@echo "make lint         - Runs: [isort > black > flake8 > mypy]"
 	@echo "make tests        - Runs: tests."

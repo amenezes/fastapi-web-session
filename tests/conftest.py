@@ -1,7 +1,7 @@
 import pytest
 
-from fastapi_session import Session
-from fastapi_session.storage import Storage
+from fastapi_web_session import Session
+from fastapi_web_session.storage import Storage
 
 
 @pytest.fixture
