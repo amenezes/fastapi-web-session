@@ -1,11 +1,11 @@
 name: 🐞 Bug Report
-description: Describe your problem or unwanted behavior with **fastapi-session**.
+description: Describe your problem or unwanted behavior with **fastapi-web-session**.
 body:
   - type: dropdown
     id: platform
     attributes:
       label: Platform
-      description: Where are you using fastapi-session?
+      description: Where are you using fastapi-web-session?
       options:
         - Linux
         - Mac

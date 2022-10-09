@@ -1,5 +1,5 @@
 name: 💡 Feature Request
-description: Share your need or ideas about a problem to make **fastapi-session** better.
+description: Share your need or ideas about a problem to make **fastapi-web-session** better.
 body:
   - type: textarea
     id: problem
