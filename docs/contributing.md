@@ -2,7 +2,7 @@
 
 First of all thanks for your time and your interest!
 
-When contributing to this repository, please first discuss the change you wish to make via [issue](https://github.com/amenezes/config-client/issues), [email](mailto:alexandre.fmenezes@gmail.com), or any other method with the owners of this repository before making a change.
+When contributing to this repository, please first discuss the change you wish to make via [issue](https://github.com/amenezes/fastapi-web-session/issues), [email](mailto:alexandre.fmenezes@gmail.com), or any other method with the owners of this repository before making a change.
 
 ## Guideline
 
@@ -10,7 +10,7 @@ When contributing to this repository, please first discuss the change you wish t
 
 To ensure minimal consisteny follow code standards or propose a better approach by discussing any of the methods listed in the previous topic.
 
-If you have any questions related to the project first try to check the [documentation](https://config-client.amenezes.net) if that is not enough open a issue and try describe:
+If you have any questions related to the project first try to check the [documentation](https://fastapi-web-session.amenezes.net) if that is not enough open a issue and try describe:
 - A quick summary and/or background
 - Steps to reproduce
   - Be specific!
