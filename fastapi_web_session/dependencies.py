@@ -15,7 +15,7 @@ async def get_session(request: Request, response: Response) -> Session:  # type:
         raise RuntimeError("Register fastapi_session in your app first.")
 
     storage = request.app.FASTAPI_SESSION_STORAGE
-    logger.debug(f"Storage: {storage}")
+    logger.debug(repr(storage))
 
     cookie = request.cookies.get(DEFAULT_SESSION_ID)
 

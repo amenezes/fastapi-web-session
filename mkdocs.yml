@@ -1,0 +1,31 @@
+site_name: fastapi-web-session
+site_url: https://fastapi-web-session.amenezes.net
+site_description: Project documentation for fastapi-web-session with mkdocs.
+site_author: Alexandre Menezes
+
+theme:
+  name: material
+  highlightjs: true
+  icon:
+    repo: fontawesome/brands/github
+  features:
+    - navigation.instant
+    - navigation.top
+
+repo_url: https://github.com/amenezes/fastapi-web-session
+repo_name: amenezes/fastapi-web-session
+
+markdown_extensions:
+  - toc:
+      permalink: '#'
+  - tables
+  - pymdownx.snippets
+  - pymdownx.superfences
+  - pymdownx.betterem
+
+nav:
+  - Home: index.md
+  - Usage: usage.md
+  - Dev:
+    - Contributing: contributing.md
+    - PR: pull_request_template.md

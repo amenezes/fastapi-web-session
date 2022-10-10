@@ -3,7 +3,7 @@ from fastapi_web_session.dependencies import get_session
 from fastapi_web_session.redis import Redis, RedisStorage
 from fastapi_web_session.session import Session
 
-__version__ = "0.1.0a1"
+__version__ = "0.1.0a2"
 __all__ = [
     "__version__",
     "Session",

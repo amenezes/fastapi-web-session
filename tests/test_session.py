@@ -1,5 +1,3 @@
-import json
-
 import pytest
 
 
@@ -15,15 +13,12 @@ def test_empty(session):
 
 
 def test_data_empty(session):
-    assert session.data() == b"{}"
+    assert session.data() == {}
 
 
 def test_data(session):
     session["test"] = "data"
-    assert session.data() == bytes(
-        json.dumps({"created": session.created, "session": session._data}),
-        encoding="utf-8",
-    )
+    assert session.data() == {"created": session.created, "session": session._data}
 
 
 def test_contains(session):

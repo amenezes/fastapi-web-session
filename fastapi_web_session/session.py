@@ -1,5 +1,4 @@
 import hashlib
-import json
 import uuid
 from datetime import datetime
 from typing import Any, Generator, KeysView, Optional
@@ -45,11 +44,11 @@ class Session:
         return self._expired
 
     @property
-    def follow(self) -> bytes:
+    def follow(self) -> str:
         followed_attr: Optional[str] = self.get(self.get("follow"))
         if followed_attr:
-            return followed_attr.encode(DEFAULT_ENCODING)
-        return b""
+            return followed_attr
+        return ""
 
     @follow.setter
     def follow(self, key: str):
@@ -85,16 +84,14 @@ class Session:
     def keys(self) -> KeysView:
         return self._data.keys()
 
-    def data(self, encoding: str = DEFAULT_ENCODING) -> bytes:
-        _databytes = {}
+    def data(self) -> dict:
         if not self.empty():
-            _databytes = {"created": self.created, "session": self._data}
-        return json.dumps(_databytes).encode(encoding=encoding)
+            return {"created": self.created, "session": self._data}
+        return self._data
 
     def empty(self) -> bool:
         return not bool(self._data)
 
     def invalidate(self):
         self._changed = True
-        self._data = {}
         self._expired = True
